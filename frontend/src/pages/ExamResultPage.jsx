@@ -93,20 +93,19 @@ export default function ExamResultPage() {
       });
   }, [sessionId]);
 
+  const buildTemplateFeedback = () => {
+    const weak = [...sections].sort((a, b) => a.score - b.score)[0];
+    const strong = [...sections].sort((a, b) => b.score - a.score)[0];
+    const SMETA = { numerical: 'Numerical', verbal: 'Verbal', reasoning: 'Reasoning', coding: 'Coding' };
+    return (
+      `**Overall Assessment**\nYour score of ${result.total_score}% shows ${result.total_score >= 50 ? 'a solid foundation' : 'room for significant improvement'}. ${result.passed ? 'You cleared the cutoff — now sharpen your weak areas.' : 'Focus on basics and retake the exam in a week.'}\n\n` +
+      `**Your Strengths**\n• ${SMETA[strong?.section] || 'N/A'} is your best section at ${strong?.score}% — keep it consistent.\n• Your attempt completion rate shows good exam temperament.\n\n` +
+      `**Focus Areas**\n• ${SMETA[weak?.section] || 'N/A'} (${weak?.score}%) needs urgent attention — practice 10 questions daily.\n• Work on time management — each question should take under 90 seconds.\n\n` +
+      `**7-Day Study Plan**\nDay 1: Revise ${SMETA[weak?.section]} fundamentals\nDay 2: Practice 20 easy ${SMETA[weak?.section]} questions\nDay 3: Attempt 15 medium questions mixed sections\nDay 4: Take a mock sectional test\nDay 5: Review mistakes, focus on hard questions\nDay 6: Full timed practice run\nDay 7: Rest & light revision before retake`
+    );
+  };
+
   const handleGetFeedback = async () => {
-    if (isDemo) {
-      // Local template for demo users
-      const weak = [...sections].sort((a, b) => a.score - b.score)[0];
-      const strong = [...sections].sort((a, b) => b.score - a.score)[0];
-      const SMETA = { numerical: 'Numerical', verbal: 'Verbal', reasoning: 'Reasoning', coding: 'Coding' };
-      setAiFeedback(
-        `**Overall Assessment**\nYour score of ${result.total_score}% shows ${result.total_score >= 50 ? 'a solid foundation' : 'room for significant improvement'}. ${result.passed ? 'You cleared the cutoff — now sharpen your weak areas.' : 'Focus on basics and retake the exam in a week.'}\n\n` +
-        `**Your Strengths**\n• ${SMETA[strong?.section] || 'N/A'} is your best section at ${strong?.score}% — keep it consistent.\n• Your attempt completion rate shows good exam temperament.\n\n` +
-        `**Focus Areas**\n• ${SMETA[weak?.section] || 'N/A'} (${weak?.score}%) needs urgent attention — practice 10 questions daily.\n• Work on time management — each question should take under 90 seconds.\n\n` +
-        `**7-Day Study Plan**\nDay 1: Revise ${SMETA[weak?.section]} fundamentals\nDay 2: Practice 20 easy ${SMETA[weak?.section]} questions\nDay 3: Attempt 15 medium questions mixed sections\nDay 4: Take a mock sectional test\nDay 5: Review mistakes, focus on hard questions\nDay 6: Full timed practice run\nDay 7: Rest & light revision before retake`
-      );
-      return;
-    }
     setAiLoading(true);
     try {
       const { feedback } = await getAiFeedback({
@@ -116,7 +115,8 @@ export default function ExamResultPage() {
       });
       setAiFeedback(feedback);
     } catch {
-      setAiFeedback('Could not generate feedback. Please check your connection and try again.');
+      // API unavailable — use local template so user always gets feedback
+      setAiFeedback(buildTemplateFeedback());
     } finally {
       setAiLoading(false);
     }

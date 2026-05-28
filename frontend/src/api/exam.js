@@ -23,7 +23,7 @@ export const getHistory = () =>
   api.get('/exam/history').then(r => r.data);
 
 export const getAiFeedback = (payload) =>
-  axios.post('http://localhost:8000/api/ai/exam-feedback', payload).then(r => r.data);
+  api.post('/ai/exam-feedback', payload).then(r => r.data);
 
 export const executeCode = (payload) =>
   axios.post('http://localhost:8000/api/code/run', payload).then(r => r.data);
