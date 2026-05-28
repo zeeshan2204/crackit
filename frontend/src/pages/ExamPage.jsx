@@ -115,7 +115,7 @@ export default function ExamPage() {
       setCodeState(initCodeState(picked));
       setQuestions([]);
     } else {
-      setQuestions(pickRandom(QUESTION_BANK[sec.key] || [], 5));
+      setQuestions(pickRandom(QUESTION_BANK[sec.key] || [], 10));
     }
     setQIdx(0); setAnswers({}); setStatuses({});
     setSectionStart(Date.now());
@@ -131,9 +131,9 @@ export default function ExamPage() {
     } else {
       try {
         const qs = await getQuestions(sec.key);
-        setQuestions(qs && qs.length > 0 ? qs : pickRandom(QUESTION_BANK[sec.key] || [], 5));
+        setQuestions(qs && qs.length > 0 ? qs : pickRandom(QUESTION_BANK[sec.key] || [], 10));
       } catch {
-        setQuestions(pickRandom(QUESTION_BANK[sec.key] || [], 5));
+        setQuestions(pickRandom(QUESTION_BANK[sec.key] || [], 10));
       }
     }
     setQIdx(0); setAnswers({}); setStatuses({});
@@ -698,7 +698,7 @@ function InstructionsScreen({ onStart }) {
         <div style={is.statGrid} className="il3 inst-stat-grid">
           {[
             ['32', 'Total Questions', '10 Numerical · 10 Verbal\n10 Reasoning · 2 Coding'],
-            ['~2 hrs', 'Exam Duration', 'Section timers · auto-submit\nwhen time runs out'],
+            ['~1 hr', 'Exam Duration', 'Global timer · auto-submit\nwhen time runs out'],
             ['Easy/Med/Hard', 'Difficulty Mix', 'Questions graded by level\nfor weakness analysis'],
             ['Live Snapshot', 'Post-Exam', 'Weaker/stronger sections\nwith recommendations'],
           ].map(([v, l, d]) => (

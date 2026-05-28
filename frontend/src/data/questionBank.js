@@ -1,5 +1,5 @@
-// Placement-level MCQ question bank — 40 questions per section
-// pickRandom(QUESTION_BANK[section], 5) called each attempt for variety
+// Placement-level MCQ question bank — 80 questions per section
+// pickRandom(QUESTION_BANK[section], 10) called each attempt for variety
 
 export const QUESTION_BANK = {
 
@@ -144,6 +144,152 @@ export const QUESTION_BANK = {
     { id: 3040, section: 'numerical', topic: 'Algebra', difficulty: 'medium',
       question_text: 'Two consecutive even numbers have product 4224. The larger number is:',
       options: ['A) 62', 'B) 64', 'C) 66', 'D) 68'], correct_answer: 'C' },
+
+    // Mixtures & Allegations
+    { id: 3041, section: 'numerical', topic: 'Mixtures & Allegations', difficulty: 'medium',
+      question_text: 'A 60-litre mixture has 10% water. How much water must be added to make water 20%?',
+      options: ['A) 5 L', 'B) 6 L', 'C) 7.5 L', 'D) 8 L'], correct_answer: 'C' },
+    { id: 3042, section: 'numerical', topic: 'Mixtures & Allegations', difficulty: 'medium',
+      question_text: 'Two solutions with 30% and 50% sugar are mixed to get 40% sugar. Ratio of mixing:',
+      options: ['A) 1:1', 'B) 1:2', 'C) 2:1', 'D) 3:1'], correct_answer: 'A' },
+    { id: 3043, section: 'numerical', topic: 'Mixtures & Allegations', difficulty: 'hard',
+      question_text: 'A vessel has 80L pure milk. 20L is removed and replaced with water. Process repeated once more. Milk remaining:',
+      options: ['A) 40 L', 'B) 42 L', 'C) 45 L', 'D) 48 L'], correct_answer: 'C' },
+    { id: 3044, section: 'numerical', topic: 'Mixtures & Allegations', difficulty: 'medium',
+      question_text: 'A 40-litre mixture is 70% juice. How much water added to make it 50% juice?',
+      options: ['A) 10 L', 'B) 12 L', 'C) 14 L', 'D) 16 L'], correct_answer: 'D' },
+    { id: 3045, section: 'numerical', topic: 'Mixtures & Allegations', difficulty: 'hard',
+      question_text: 'Alloy A has iron:copper = 3:2, alloy B has 2:3. Mix to get 50% iron. Ratio of A:B:',
+      options: ['A) 1:1', 'B) 2:1', 'C) 1:2', 'D) 3:2'], correct_answer: 'A' },
+
+    // Number System
+    { id: 3046, section: 'numerical', topic: 'Number System', difficulty: 'easy',
+      question_text: 'What is the unit digit of 7⁷⁵?',
+      options: ['A) 1', 'B) 3', 'C) 7', 'D) 9'], correct_answer: 'B' },
+    { id: 3047, section: 'numerical', topic: 'Number System', difficulty: 'medium',
+      question_text: 'How many trailing zeros are in 25!?',
+      options: ['A) 5', 'B) 6', 'C) 7', 'D) 8'], correct_answer: 'B' },
+    { id: 3048, section: 'numerical', topic: 'Number System', difficulty: 'easy',
+      question_text: 'Sum of first 20 odd natural numbers:',
+      options: ['A) 360', 'B) 380', 'C) 400', 'D) 420'], correct_answer: 'C' },
+    { id: 3049, section: 'numerical', topic: 'Number System', difficulty: 'medium',
+      question_text: 'A number divided by 8 gives remainder 5. Remainder when square of that number is divided by 8:',
+      options: ['A) 1', 'B) 3', 'C) 5', 'D) 7'], correct_answer: 'A' },
+
+    // Profit & Loss (more)
+    { id: 3050, section: 'numerical', topic: 'Profit & Loss', difficulty: 'medium',
+      question_text: 'A trader marks price 40% above cost and gives 10% discount. Profit %:',
+      options: ['A) 20%', 'B) 24%', 'C) 26%', 'D) 30%'], correct_answer: 'C' },
+    { id: 3051, section: 'numerical', topic: 'Profit & Loss', difficulty: 'hard',
+      question_text: 'Two articles sold at ₹990 each — 10% gain on one, 10% loss on other. Overall:',
+      options: ['A) No profit/loss', 'B) 1% loss', 'C) 1% profit', 'D) 2% loss'], correct_answer: 'B' },
+
+    // Mensuration
+    { id: 3052, section: 'numerical', topic: 'Mensuration', difficulty: 'easy',
+      question_text: 'Perimeter of a square is 48 cm. Area:',
+      options: ['A) 108 cm²', 'B) 124 cm²', 'C) 144 cm²', 'D) 156 cm²'], correct_answer: 'C' },
+    { id: 3053, section: 'numerical', topic: 'Mensuration', difficulty: 'medium',
+      question_text: 'Radius of a circle = 7 cm. Area of semicircle (π = 22/7):',
+      options: ['A) 77 cm²', 'B) 88 cm²', 'C) 154 cm²', 'D) 44 cm²'], correct_answer: 'A' },
+
+    // Probability & Combined
+    { id: 3054, section: 'numerical', topic: 'Probability', difficulty: 'medium',
+      question_text: 'Probability of getting a prime number on rolling a fair die:',
+      options: ['A) 1/3', 'B) 1/2', 'C) 2/3', 'D) 5/6'], correct_answer: 'B' },
+    { id: 3055, section: 'numerical', topic: 'Sets', difficulty: 'hard',
+      question_text: 'In a class of 40: 20 play cricket, 15 play football, 5 play both. Students who play neither:',
+      options: ['A) 5', 'B) 8', 'C) 10', 'D) 12'], correct_answer: 'C' },
+    { id: 3056, section: 'numerical', topic: 'Time & Work', difficulty: 'hard',
+      question_text: 'A+B finish in 12 days. B+C in 15 days. A+C in 20 days. All three together finish in:',
+      options: ['A) 8 days', 'B) 9 days', 'C) 10 days', 'D) 12 days'], correct_answer: 'C' },
+    { id: 3057, section: 'numerical', topic: 'Speed & Distance', difficulty: 'easy',
+      question_text: 'Distance between two cities is 450 km. Train speed 90 km/h. Time taken:',
+      options: ['A) 4 hrs', 'B) 4.5 hrs', 'C) 5 hrs', 'D) 5.5 hrs'], correct_answer: 'C' },
+    { id: 3058, section: 'numerical', topic: 'Percentages', difficulty: 'medium',
+      question_text: 'In a class, 60% passed Maths, 70% passed English, 10% failed both. % who passed both:',
+      options: ['A) 30%', 'B) 40%', 'C) 45%', 'D) 50%'], correct_answer: 'B' },
+    { id: 3059, section: 'numerical', topic: 'Mixtures & Allegations', difficulty: 'hard',
+      question_text: 'Milk and water are in ratio 4:1 in 80L. 20L removed, replaced with water. New ratio of milk:water:',
+      options: ['A) 3:1', 'B) 8:3', 'C) 16:9', 'D) 4:3'], correct_answer: 'C' },
+    { id: 3060, section: 'numerical', topic: 'Profit & Loss', difficulty: 'easy',
+      question_text: 'Loss of 20% on Selling Price is what % loss on Cost Price?',
+      options: ['A) 16.67%', 'B) 20%', 'C) 25%', 'D) 33.33%'], correct_answer: 'A' },
+
+    // Age Problems
+    { id: 3061, section: 'numerical', topic: 'Age Problems', difficulty: 'easy',
+      question_text: "Ravi's age is 3 times his son's. After 10 years, it will be twice. Ravi's present age:",
+      options: ['A) 30', 'B) 40', 'C) 45', 'D) 50'], correct_answer: 'A' },
+    { id: 3062, section: 'numerical', topic: 'Age Problems', difficulty: 'medium',
+      question_text: "Sum of ages of A and B is 40. A is 4 years older than B. A's age:",
+      options: ['A) 18', 'B) 20', 'C) 22', 'D) 24'], correct_answer: 'C' },
+    { id: 3063, section: 'numerical', topic: 'Age Problems', difficulty: 'medium',
+      question_text: 'The ratio of father to son ages is 7:2. After 10 years ratio will be 9:4. Father\'s age now:',
+      options: ['A) 28', 'B) 35', 'C) 42', 'D) 49'], correct_answer: 'B' },
+
+    // Permutations & Combinations
+    { id: 3064, section: 'numerical', topic: 'Permutation & Combination', difficulty: 'easy',
+      question_text: 'In how many ways can 4 people be arranged in a row?',
+      options: ['A) 12', 'B) 16', 'C) 24', 'D) 48'], correct_answer: 'C' },
+    { id: 3065, section: 'numerical', topic: 'Permutation & Combination', difficulty: 'medium',
+      question_text: 'A committee of 3 is selected from 6 people. Number of ways:',
+      options: ['A) 18', 'B) 20', 'C) 24', 'D) 120'], correct_answer: 'B' },
+    { id: 3066, section: 'numerical', topic: 'Permutation & Combination', difficulty: 'hard',
+      question_text: 'How many 4-digit numbers can be formed using 1,2,3,4,5 with no digit repeated?',
+      options: ['A) 60', 'B) 100', 'C) 120', 'D) 125'], correct_answer: 'C' },
+
+    // Probability
+    { id: 3067, section: 'numerical', topic: 'Probability', difficulty: 'easy',
+      question_text: 'Two dice rolled. Probability of getting sum = 7:',
+      options: ['A) 1/6', 'B) 1/8', 'C) 5/36', 'D) 7/36'], correct_answer: 'A' },
+    { id: 3068, section: 'numerical', topic: 'Probability', difficulty: 'medium',
+      question_text: 'A bag has 4 red and 6 blue balls. Probability of picking 2 red balls together:',
+      options: ['A) 2/15', 'B) 1/5', 'C) 4/25', 'D) 1/3'], correct_answer: 'A' },
+
+    // Mensuration
+    { id: 3069, section: 'numerical', topic: 'Mensuration', difficulty: 'medium',
+      question_text: 'Volume of a cylinder: radius=7cm, height=10cm (π=22/7):',
+      options: ['A) 1540 cm³', 'B) 1520 cm³', 'C) 1480 cm³', 'D) 1560 cm³'], correct_answer: 'A' },
+    { id: 3070, section: 'numerical', topic: 'Mensuration', difficulty: 'medium',
+      question_text: 'Area of a triangle with base 12cm and height 8cm:',
+      options: ['A) 40 cm²', 'B) 48 cm²', 'C) 56 cm²', 'D) 96 cm²'], correct_answer: 'B' },
+    { id: 3071, section: 'numerical', topic: 'Mensuration', difficulty: 'hard',
+      question_text: 'If each side of a square is increased by 20%, the area increases by:',
+      options: ['A) 20%', 'B) 36%', 'C) 40%', 'D) 44%'], correct_answer: 'D' },
+
+    // Algebra
+    { id: 3072, section: 'numerical', topic: 'Algebra', difficulty: 'easy',
+      question_text: 'If x + y = 10 and xy = 21, then x² + y² = ?',
+      options: ['A) 42', 'B) 52', 'C) 58', 'D) 79'], correct_answer: 'C' },
+    { id: 3073, section: 'numerical', topic: 'Algebra', difficulty: 'medium',
+      question_text: 'If 2x + 3y = 12 and 3x + 2y = 13, then x + y = ?',
+      options: ['A) 4', 'B) 5', 'C) 6', 'D) 7'], correct_answer: 'B' },
+
+    // Geometry
+    { id: 3074, section: 'numerical', topic: 'Geometry', difficulty: 'easy',
+      question_text: 'Hypotenuse of a right triangle with legs 6cm and 8cm:',
+      options: ['A) 8 cm', 'B) 9 cm', 'C) 10 cm', 'D) 12 cm'], correct_answer: 'C' },
+    { id: 3075, section: 'numerical', topic: 'Geometry', difficulty: 'medium',
+      question_text: 'Sum of interior angles of a hexagon:',
+      options: ['A) 540°', 'B) 600°', 'C) 720°', 'D) 900°'], correct_answer: 'C' },
+
+    // Data Interpretation
+    { id: 3076, section: 'numerical', topic: 'Data Interpretation', difficulty: 'medium',
+      question_text: 'Sales in Jan=200, Feb=250, Mar=300, Apr=350. % increase from Jan to Apr:',
+      options: ['A) 50%', 'B) 65%', 'C) 75%', 'D) 80%'], correct_answer: 'C' },
+    { id: 3077, section: 'numerical', topic: 'Data Interpretation', difficulty: 'hard',
+      question_text: 'Average monthly sales in Q1 (Jan–Mar) is ₹4 lakh; Q2 (Apr–Jun) is ₹6 lakh. % increase:',
+      options: ['A) 25%', 'B) 33.3%', 'C) 50%', 'D) 66.7%'], correct_answer: 'C' },
+
+    // Number System extras
+    { id: 3078, section: 'numerical', topic: 'Number System', difficulty: 'easy',
+      question_text: 'What is the sum of divisors of 12?',
+      options: ['A) 24', 'B) 28', 'C) 30', 'D) 32'], correct_answer: 'B' },
+    { id: 3079, section: 'numerical', topic: 'HCF & LCM', difficulty: 'medium',
+      question_text: 'HCF of 36 and 48:',
+      options: ['A) 6', 'B) 9', 'C) 12', 'D) 18'], correct_answer: 'C' },
+    { id: 3080, section: 'numerical', topic: 'Speed & Distance', difficulty: 'hard',
+      question_text: 'A boat travels 36 km upstream in 4 hrs and 36 km downstream in 3 hrs. Speed of stream:',
+      options: ['A) 1.5 km/h', 'B) 2 km/h', 'C) 2.5 km/h', 'D) 3 km/h'], correct_answer: 'A' },
   ],
 
   // ─────────────────────── VERBAL ─────────────────────────────
@@ -279,6 +425,154 @@ export const QUESTION_BANK = {
     { id: 1040, section: 'verbal', topic: 'Idioms & Phrases', difficulty: 'hard',
       question_text: '"To beat around the bush" means:',
       options: ['A) To search in a forest', 'B) To avoid the main topic', 'C) To beat someone', 'D) To work hard'], correct_answer: 'B' },
+
+    // More Synonyms
+    { id: 1041, section: 'verbal', topic: 'Synonyms', difficulty: 'easy',
+      question_text: 'Choose the synonym of ELOQUENT:',
+      options: ['A) Clumsy', 'B) Articulate', 'C) Silent', 'D) Dull'], correct_answer: 'B' },
+    { id: 1042, section: 'verbal', topic: 'Synonyms', difficulty: 'medium',
+      question_text: 'Choose the synonym of PERSEVERE:',
+      options: ['A) Quit', 'B) Persist', 'C) Hesitate', 'D) Wander'], correct_answer: 'B' },
+    { id: 1043, section: 'verbal', topic: 'Synonyms', difficulty: 'medium',
+      question_text: 'Choose the synonym of AMBIGUOUS:',
+      options: ['A) Clear', 'B) Definite', 'C) Vague', 'D) Simple'], correct_answer: 'C' },
+    { id: 1044, section: 'verbal', topic: 'Synonyms', difficulty: 'hard',
+      question_text: 'Choose the synonym of EGREGIOUS:',
+      options: ['A) Remarkable', 'B) Ordinary', 'C) Outrageous', 'D) Modest'], correct_answer: 'C' },
+
+    // More Antonyms
+    { id: 1045, section: 'verbal', topic: 'Antonyms', difficulty: 'easy',
+      question_text: 'Choose the antonym of TRANSPARENT:',
+      options: ['A) Clear', 'B) Opaque', 'C) Bright', 'D) Shiny'], correct_answer: 'B' },
+    { id: 1046, section: 'verbal', topic: 'Antonyms', difficulty: 'medium',
+      question_text: 'Choose the antonym of VERBOSE:',
+      options: ['A) Wordy', 'B) Talkative', 'C) Concise', 'D) Fluent'], correct_answer: 'C' },
+    { id: 1047, section: 'verbal', topic: 'Antonyms', difficulty: 'medium',
+      question_text: 'Choose the antonym of INSOLENT:',
+      options: ['A) Rude', 'B) Arrogant', 'C) Polite', 'D) Proud'], correct_answer: 'C' },
+    { id: 1048, section: 'verbal', topic: 'Antonyms', difficulty: 'hard',
+      question_text: 'Choose the antonym of PARSIMONIOUS:',
+      options: ['A) Stingy', 'B) Generous', 'C) Careful', 'D) Frugal'], correct_answer: 'B' },
+
+    // More Fill in the Blanks
+    { id: 1049, section: 'verbal', topic: 'Fill in the Blanks', difficulty: 'easy',
+      question_text: 'The teacher ______ the students for their excellent performance.',
+      options: ['A) scolded', 'B) praised', 'C) ignored', 'D) punished'], correct_answer: 'B' },
+    { id: 1050, section: 'verbal', topic: 'Fill in the Blanks', difficulty: 'medium',
+      question_text: 'His ______ behavior in the meeting shocked everyone.',
+      options: ['A) polite', 'B) humble', 'C) obnoxious', 'D) gentle'], correct_answer: 'C' },
+    { id: 1051, section: 'verbal', topic: 'Fill in the Blanks', difficulty: 'easy',
+      question_text: 'She speaks English ______ despite being a non-native speaker.',
+      options: ['A) fluently', 'B) frequent', 'C) fluent', 'D) fluency'], correct_answer: 'A' },
+    { id: 1052, section: 'verbal', topic: 'Fill in the Blanks', difficulty: 'medium',
+      question_text: 'The project was ______ due to lack of funds.',
+      options: ['A) accomplished', 'B) scrapped', 'C) promoted', 'D) launched'], correct_answer: 'B' },
+    { id: 1053, section: 'verbal', topic: 'Fill in the Blanks', difficulty: 'hard',
+      question_text: 'His argument was so ______ that even the judge was convinced.',
+      options: ['A) irrelevant', 'B) invalid', 'C) compelling', 'D) confusing'], correct_answer: 'C' },
+
+    // Error Detection
+    { id: 1054, section: 'verbal', topic: 'Sentence Correction', difficulty: 'easy',
+      question_text: "Find the error: 'He is one of the honest man I know.'",
+      options: ['A) He is', 'B) one of', 'C) honest man', 'D) I know'], correct_answer: 'C' },
+    { id: 1055, section: 'verbal', topic: 'Sentence Correction', difficulty: 'medium',
+      question_text: "Find the error: 'She has been working since three hours.'",
+      options: ['A) She has', 'B) been working', 'C) since', 'D) three hours'], correct_answer: 'C' },
+    { id: 1056, section: 'verbal', topic: 'Sentence Correction', difficulty: 'medium',
+      question_text: "Find the error: 'Between you and I, this plan will not work.'",
+      options: ['A) Between', 'B) you and I', 'C) this plan', 'D) will not work'], correct_answer: 'B' },
+
+    // Voice & Tense
+    { id: 1057, section: 'verbal', topic: 'Grammar', difficulty: 'medium',
+      question_text: "Correct passive voice of 'The teacher will punish the student.'",
+      options: ['A) The student is punished by the teacher.', 'B) The student was punished by the teacher.', 'C) The student will be punished by the teacher.', 'D) The student has been punished by the teacher.'], correct_answer: 'C' },
+    { id: 1058, section: 'verbal', topic: 'Grammar', difficulty: 'easy',
+      question_text: 'Choose the correct sentence:',
+      options: ['A) Despite of his efforts, he failed.', 'B) Despite his efforts, he failed.', 'C) Inspite his efforts, he failed.', 'D) Despite of his failing efforts.'], correct_answer: 'B' },
+
+    // More Idioms
+    { id: 1059, section: 'verbal', topic: 'Idioms & Phrases', difficulty: 'easy',
+      question_text: '"To hit the nail on the head" means:',
+      options: ['A) To cause pain', 'B) To describe exactly right', 'C) To work hard', 'D) To make a mistake'], correct_answer: 'B' },
+    { id: 1060, section: 'verbal', topic: 'Idioms & Phrases', difficulty: 'medium',
+      question_text: '"A blessing in disguise" means:',
+      options: ['A) A hidden curse', 'B) Something good that seemed bad at first', 'C) A religious ceremony', 'D) A lucky escape'], correct_answer: 'B' },
+
+    // More Synonyms
+    { id: 1061, section: 'verbal', topic: 'Synonyms', difficulty: 'easy',
+      question_text: 'Choose the synonym of SERENE:',
+      options: ['A) Noisy', 'B) Calm', 'C) Busy', 'D) Angry'], correct_answer: 'B' },
+    { id: 1062, section: 'verbal', topic: 'Synonyms', difficulty: 'medium',
+      question_text: 'Choose the synonym of DEFUNCT:',
+      options: ['A) Active', 'B) Growing', 'C) No longer existing', 'D) Famous'], correct_answer: 'C' },
+    { id: 1063, section: 'verbal', topic: 'Synonyms', difficulty: 'hard',
+      question_text: 'Choose the synonym of PERFIDIOUS:',
+      options: ['A) Loyal', 'B) Treacherous', 'C) Brave', 'D) Honest'], correct_answer: 'B' },
+
+    // More Antonyms
+    { id: 1064, section: 'verbal', topic: 'Antonyms', difficulty: 'easy',
+      question_text: 'Choose the antonym of HUMBLE:',
+      options: ['A) Kind', 'B) Gentle', 'C) Arrogant', 'D) Quiet'], correct_answer: 'C' },
+    { id: 1065, section: 'verbal', topic: 'Antonyms', difficulty: 'medium',
+      question_text: 'Choose the antonym of BENIGN:',
+      options: ['A) Gentle', 'B) Harmful', 'C) Peaceful', 'D) Safe'], correct_answer: 'B' },
+    { id: 1066, section: 'verbal', topic: 'Antonyms', difficulty: 'hard',
+      question_text: 'Choose the antonym of SYCOPHANT:',
+      options: ['A) Flatterer', 'B) Admirer', 'C) Critic', 'D) Follower'], correct_answer: 'C' },
+
+    // More Fill in the Blanks
+    { id: 1067, section: 'verbal', topic: 'Fill in the Blanks', difficulty: 'easy',
+      question_text: 'The child was ______ for breaking the window.',
+      options: ['A) rewarded', 'B) praised', 'C) scolded', 'D) ignored'], correct_answer: 'C' },
+    { id: 1068, section: 'verbal', topic: 'Fill in the Blanks', difficulty: 'medium',
+      question_text: 'The politician made a ______ promise to reduce taxes.',
+      options: ['A) genuine', 'B) hollow', 'C) brilliant', 'D) secret'], correct_answer: 'B' },
+    { id: 1069, section: 'verbal', topic: 'Fill in the Blanks', difficulty: 'hard',
+      question_text: 'The researcher\'s findings were ______, casting doubt on the established theory.',
+      options: ['A) confirming', 'B) supportive', 'C) inconclusive', 'D) definitive'], correct_answer: 'C' },
+
+    // Grammar / Prepositions
+    { id: 1070, section: 'verbal', topic: 'Grammar', difficulty: 'easy',
+      question_text: 'Choose the correct preposition: "She is good ______ mathematics."',
+      options: ['A) in', 'B) at', 'C) on', 'D) for'], correct_answer: 'B' },
+    { id: 1071, section: 'verbal', topic: 'Grammar', difficulty: 'medium',
+      question_text: 'Choose the correct article: "He is ______ honest man."',
+      options: ['A) a', 'B) an', 'C) the', 'D) no article'], correct_answer: 'B' },
+    { id: 1072, section: 'verbal', topic: 'Grammar', difficulty: 'medium',
+      question_text: 'Choose the correct form: "If I ______ rich, I would travel the world."',
+      options: ['A) am', 'B) was', 'C) were', 'D) had been'], correct_answer: 'C' },
+
+    // More Sentence Correction
+    { id: 1073, section: 'verbal', topic: 'Sentence Correction', difficulty: 'easy',
+      question_text: "Find the error: 'Each of the boys have submitted their homework.'",
+      options: ['A) Each of', 'B) the boys', 'C) have submitted', 'D) their homework'], correct_answer: 'C' },
+    { id: 1074, section: 'verbal', topic: 'Sentence Correction', difficulty: 'medium',
+      question_text: "Find the error: 'He plays cricket since childhood.'",
+      options: ['A) He', 'B) plays', 'C) cricket', 'D) since childhood'], correct_answer: 'B' },
+
+    // One Word Substitution
+    { id: 1075, section: 'verbal', topic: 'One Word Substitution', difficulty: 'easy',
+      question_text: 'One who cannot be corrected:',
+      options: ['A) Invincible', 'B) Incorrigible', 'C) Insolent', 'D) Inevitable'], correct_answer: 'B' },
+    { id: 1076, section: 'verbal', topic: 'One Word Substitution', difficulty: 'medium',
+      question_text: 'Murder of one\'s own brother:',
+      options: ['A) Homicide', 'B) Patricide', 'C) Fratricide', 'D) Infanticide'], correct_answer: 'C' },
+
+    // More Idioms
+    { id: 1077, section: 'verbal', topic: 'Idioms & Phrases', difficulty: 'easy',
+      question_text: '"To add fuel to the fire" means:',
+      options: ['A) To calm a situation', 'B) To make a bad situation worse', 'C) To start a fire', 'D) To solve a problem'], correct_answer: 'B' },
+    { id: 1078, section: 'verbal', topic: 'Idioms & Phrases', difficulty: 'medium',
+      question_text: '"To sit on the fence" means:',
+      options: ['A) To be lazy', 'B) To avoid taking sides', 'C) To take a strong stand', 'D) To fall down'], correct_answer: 'B' },
+
+    // Synonyms + Antonyms extras
+    { id: 1079, section: 'verbal', topic: 'Synonyms', difficulty: 'medium',
+      question_text: 'Choose the synonym of STRINGENT:',
+      options: ['A) Lenient', 'B) Strict', 'C) Flexible', 'D) Casual'], correct_answer: 'B' },
+    { id: 1080, section: 'verbal', topic: 'Antonyms', difficulty: 'medium',
+      question_text: 'Choose the antonym of NOTORIOUS:',
+      options: ['A) Famous', 'B) Reputable', 'C) Infamous', 'D) Unknown'], correct_answer: 'B' },
   ],
 
   // ─────────────────────── REASONING ──────────────────────────
@@ -420,5 +714,167 @@ export const QUESTION_BANK = {
     { id: 2040, section: 'reasoning', topic: 'Seating Arrangement', difficulty: 'hard',
       question_text: 'In a row of 10, Ramesh is 4th from left and Suresh is 3rd from right. How many persons are between them?',
       options: ['A) 2', 'B) 3', 'C) 4', 'D) 5'], correct_answer: 'B' },
+
+    // More Number Series
+    { id: 2041, section: 'reasoning', topic: 'Number Series', difficulty: 'easy',
+      question_text: 'Find the next: 1, 1, 2, 3, 5, 8, 13, ?',
+      options: ['A) 18', 'B) 20', 'C) 21', 'D) 24'], correct_answer: 'C' },
+    { id: 2042, section: 'reasoning', topic: 'Number Series', difficulty: 'medium',
+      question_text: 'Find the next: 3, 7, 15, 31, 63, ?',
+      options: ['A) 95', 'B) 107', 'C) 127', 'D) 135'], correct_answer: 'C' },
+    { id: 2043, section: 'reasoning', topic: 'Number Series', difficulty: 'hard',
+      question_text: 'Find the missing: 4, 9, 25, 49, ?, 169',
+      options: ['A) 81', 'B) 100', 'C) 121', 'D) 144'], correct_answer: 'C' },
+
+    // Statement & Conclusion
+    { id: 2044, section: 'reasoning', topic: 'Statement & Conclusion', difficulty: 'easy',
+      question_text: 'Statement: Some doctors are teachers. All teachers are scholars. Conclusion: Some doctors are scholars.',
+      options: ['A) Follows', 'B) Does not follow', 'C) Uncertain', 'D) Partially follows'], correct_answer: 'A' },
+    { id: 2045, section: 'reasoning', topic: 'Statement & Conclusion', difficulty: 'medium',
+      question_text: '"All students who study hard will pass." Ram did not study hard. Conclusion: Ram will not pass.',
+      options: ['A) Definitely true', 'B) Definitely false', 'C) Cannot determine', 'D) Partially true'], correct_answer: 'C' },
+    { id: 2046, section: 'reasoning', topic: 'Statement & Conclusion', difficulty: 'hard',
+      question_text: 'All pens are books. Some books are pencils. No pencil is an eraser. Conclusion: Some pens are pencils.',
+      options: ['A) Follows', 'B) Does not follow', 'C) Possibly follows', 'D) Cannot say'], correct_answer: 'B' },
+
+    // Coding-Decoding
+    { id: 2047, section: 'reasoning', topic: 'Coding-Decoding', difficulty: 'easy',
+      question_text: 'If TIGER is coded as UJHFS (+1 each letter), how is WATER coded?',
+      options: ['A) XBUFS', 'B) WBUES', 'C) VZSDS', 'D) XBUES'], correct_answer: 'A' },
+    { id: 2048, section: 'reasoning', topic: 'Coding-Decoding', difficulty: 'medium',
+      question_text: 'In a code: A=1, B=2, C=3... What is the code for FACE?',
+      options: ['A) 6153', 'B) 6135', 'C) 6315', 'D) 1635'], correct_answer: 'B' },
+    { id: 2049, section: 'reasoning', topic: 'Coding-Decoding', difficulty: 'hard',
+      question_text: 'ROAD = 1234, DOOR = 3441. How is RADAR coded?',
+      options: ['A) 13431', 'B) 14231', 'C) 13241', 'D) 12431'], correct_answer: 'A' },
+
+    // Direction Sense
+    { id: 2050, section: 'reasoning', topic: 'Direction Sense', difficulty: 'medium',
+      question_text: 'A boy walks 3 km East, 4 km North, 3 km West. How far from starting point?',
+      options: ['A) 3 km', 'B) 4 km', 'C) 5 km', 'D) 7 km'], correct_answer: 'B' },
+    { id: 2051, section: 'reasoning', topic: 'Direction Sense', difficulty: 'medium',
+      question_text: 'Facing South, turn right 90°, then left 180°, then right 90°. Final direction:',
+      options: ['A) North', 'B) South', 'C) East', 'D) West'], correct_answer: 'A' },
+
+    // Seating / Circular
+    { id: 2052, section: 'reasoning', topic: 'Seating Arrangement', difficulty: 'medium',
+      question_text: 'P, Q, R, S sit around a circular table. P sits opposite Q. R sits to the left of P. S sits to the right of Q. Who sits opposite R?',
+      options: ['A) P', 'B) Q', 'C) S', 'D) Cannot determine'], correct_answer: 'C' },
+    { id: 2053, section: 'reasoning', topic: 'Seating Arrangement', difficulty: 'medium',
+      question_text: 'A clock shows 3:15. Angle between hour and minute hand:',
+      options: ['A) 0°', 'B) 7.5°', 'C) 15°', 'D) 22.5°'], correct_answer: 'B' },
+
+    // Letter Series
+    { id: 2054, section: 'reasoning', topic: 'Letter Series', difficulty: 'easy',
+      question_text: 'What comes next: AZ, BY, CX, DW, ?',
+      options: ['A) EV', 'B) EU', 'C) FV', 'D) EW'], correct_answer: 'A' },
+
+    // Odd One Out
+    { id: 2055, section: 'reasoning', topic: 'Odd One Out', difficulty: 'medium',
+      question_text: 'Which is the odd one out: 4, 9, 16, 25, 35, 49?',
+      options: ['A) 9', 'B) 25', 'C) 35', 'D) 49'], correct_answer: 'C' },
+
+    // Puzzles & Sets
+    { id: 2056, section: 'reasoning', topic: 'Puzzles', difficulty: 'medium',
+      question_text: 'In a class of 40: 20 play cricket, 15 play football, 5 play both. Students who play neither:',
+      options: ['A) 5', 'B) 8', 'C) 10', 'D) 12'], correct_answer: 'C' },
+    { id: 2057, section: 'reasoning', topic: 'Puzzles', difficulty: 'hard',
+      question_text: 'A rat runs 5m East, 3m North, 5m West, 4m South from point P. Distance from P to current position:',
+      options: ['A) 1m', 'B) 2m', 'C) 3m', 'D) 4m'], correct_answer: 'A' },
+
+    // Analogies
+    { id: 2058, section: 'reasoning', topic: 'Analogy', difficulty: 'easy',
+      question_text: 'Pen : Write :: Knife : ?',
+      options: ['A) Sharp', 'B) Cut', 'C) Steel', 'D) Kitchen'], correct_answer: 'B' },
+    { id: 2059, section: 'reasoning', topic: 'Analogy', difficulty: 'medium',
+      question_text: 'Cricket : Bat :: Hockey : ?',
+      options: ['A) Ball', 'B) Field', 'C) Stick', 'D) Goal'], correct_answer: 'C' },
+    { id: 2060, section: 'reasoning', topic: 'Analogy', difficulty: 'medium',
+      question_text: 'Paw : Cat :: Hoof : ?',
+      options: ['A) Dog', 'B) Horse', 'C) Lion', 'D) Rabbit'], correct_answer: 'B' },
+
+    // Calendar
+    { id: 2061, section: 'reasoning', topic: 'Calendar', difficulty: 'easy',
+      question_text: 'What day of the week is 1 January 2000? (It is a Saturday)',
+      options: ['A) Friday', 'B) Saturday', 'C) Sunday', 'D) Monday'], correct_answer: 'B' },
+    { id: 2062, section: 'reasoning', topic: 'Calendar', difficulty: 'medium',
+      question_text: 'If 15 March 2023 is Wednesday, what day is 22 March 2023?',
+      options: ['A) Tuesday', 'B) Wednesday', 'C) Thursday', 'D) Friday'], correct_answer: 'B' },
+    { id: 2063, section: 'reasoning', topic: 'Calendar', difficulty: 'hard',
+      question_text: 'What was the day of the week on 26 January 1950 (Republic Day)? Odd days approach gives Thursday.',
+      options: ['A) Monday', 'B) Tuesday', 'C) Wednesday', 'D) Thursday'], correct_answer: 'D' },
+
+    // Clocks
+    { id: 2064, section: 'reasoning', topic: 'Clocks', difficulty: 'easy',
+      question_text: 'How many times do the hands of a clock coincide in 12 hours?',
+      options: ['A) 10', 'B) 11', 'C) 12', 'D) 24'], correct_answer: 'B' },
+    { id: 2065, section: 'reasoning', topic: 'Clocks', difficulty: 'medium',
+      question_text: 'Angle between clock hands at 6:30:',
+      options: ['A) 0°', 'B) 10°', 'C) 15°', 'D) 20°'], correct_answer: 'C' },
+    { id: 2066, section: 'reasoning', topic: 'Clocks', difficulty: 'hard',
+      question_text: 'A clock gains 5 min every hour. If set correct at noon, what time does it show at 6 PM?',
+      options: ['A) 6:30 PM', 'B) 6:25 PM', 'C) 6:35 PM', 'D) 7:00 PM'], correct_answer: 'A' },
+
+    // Ranking
+    { id: 2067, section: 'reasoning', topic: 'Ranking', difficulty: 'easy',
+      question_text: 'Ravi is 7th from top and 5th from bottom in a class. Total students:',
+      options: ['A) 10', 'B) 11', 'C) 12', 'D) 13'], correct_answer: 'B' },
+    { id: 2068, section: 'reasoning', topic: 'Ranking', difficulty: 'medium',
+      question_text: 'In a row of 40, A is 15th from left. Position from right:',
+      options: ['A) 24', 'B) 25', 'C) 26', 'D) 27'], correct_answer: 'C' },
+
+    // Venn Diagrams
+    { id: 2069, section: 'reasoning', topic: 'Venn Diagram', difficulty: 'medium',
+      question_text: 'In 50 students: 30 like cricket, 20 like football, 10 like both. How many like neither?',
+      options: ['A) 5', 'B) 8', 'C) 10', 'D) 12'], correct_answer: 'C' },
+    { id: 2070, section: 'reasoning', topic: 'Venn Diagram', difficulty: 'hard',
+      question_text: 'In a survey of 100: 60 read newspaper A, 50 read B, 30 read both. How many read at least one?',
+      options: ['A) 70', 'B) 75', 'C) 80', 'D) 90'], correct_answer: 'C' },
+
+    // Matrix / Visual Reasoning
+    { id: 2071, section: 'reasoning', topic: 'Pattern Recognition', difficulty: 'medium',
+      question_text: 'In a matrix: Row 1: 2,4,6; Row 2: 3,9,27; Row 3: 4,?,64. Missing number:',
+      options: ['A) 12', 'B) 16', 'C) 18', 'D) 20'], correct_answer: 'B' },
+    { id: 2072, section: 'reasoning', topic: 'Pattern Recognition', difficulty: 'hard',
+      question_text: 'Pattern: 1, 8, 27, 64, ?',
+      options: ['A) 100', 'B) 121', 'C) 125', 'D) 144'], correct_answer: 'C' },
+
+    // Data Sufficiency
+    { id: 2073, section: 'reasoning', topic: 'Data Sufficiency', difficulty: 'medium',
+      question_text: 'Is x > 0? Statement 1: x² = 4. Statement 2: x + 2 > 0. Sufficient to determine x > 0:',
+      options: ['A) Statement 1 alone', 'B) Statement 2 alone', 'C) Both together', 'D) Neither'], correct_answer: 'B' },
+
+    // More Blood Relations
+    { id: 2074, section: 'reasoning', topic: 'Blood Relations', difficulty: 'medium',
+      question_text: "Pointing to a girl, Raj says 'She is the only daughter of my wife's brother.' How is Raj related to the girl?",
+      options: ['A) Father', 'B) Uncle', 'C) Brother', 'D) Cannot determine'], correct_answer: 'D' },
+    { id: 2075, section: 'reasoning', topic: 'Blood Relations', difficulty: 'hard',
+      question_text: 'A is mother of B. B is sister of C. C is father of D. How is A related to D?',
+      options: ['A) Mother', 'B) Grandmother', 'C) Aunt', 'D) Sister'], correct_answer: 'B' },
+
+    // More Syllogism
+    { id: 2076, section: 'reasoning', topic: 'Syllogism', difficulty: 'medium',
+      question_text: 'All roses are flowers. Some flowers are red. Conclusion: Some roses are red.',
+      options: ['A) Definitely follows', 'B) Definitely does not follow', 'C) Possibly follows', 'D) Cannot say'], correct_answer: 'C' },
+
+    // More Coding-Decoding
+    { id: 2077, section: 'reasoning', topic: 'Coding-Decoding', difficulty: 'medium',
+      question_text: "If PALE = 2134, EARTH = 31654, then PEARL = ?",
+      options: ['A) 21345', 'B) 23154', 'C) 21354', 'D) 23145'], correct_answer: 'C' },
+
+    // More Analogy
+    { id: 2078, section: 'reasoning', topic: 'Analogy', difficulty: 'easy',
+      question_text: 'Marathon : Race :: Novel : ?',
+      options: ['A) Chapter', 'B) Author', 'C) Book', 'D) Literature'], correct_answer: 'C' },
+
+    // More Direction
+    { id: 2079, section: 'reasoning', topic: 'Direction Sense', difficulty: 'hard',
+      question_text: 'P walks 10m North, turns left 6m, turns left 10m. Direction and distance from start:',
+      options: ['A) 6m East', 'B) 6m West', 'C) 10m South', 'D) 16m West'], correct_answer: 'B' },
+
+    // More Number Series
+    { id: 2080, section: 'reasoning', topic: 'Number Series', difficulty: 'hard',
+      question_text: 'Find the next: 2, 6, 12, 20, 30, 42, ?',
+      options: ['A) 52', 'B) 54', 'C) 56', 'D) 60'], correct_answer: 'C' },
   ],
 };
