@@ -223,7 +223,6 @@ export default function ExamPage() {
   };
 
   const handleSubmitSection = useCallback(async (autoSubmit = false) => {
-    clearInterval(timerRef.current);
     const timeTaken = Math.floor((Date.now() - sectionStart) / 1000);
     const newCompleted = [...completedSections, section.key];
     setCompletedSections(newCompleted);
