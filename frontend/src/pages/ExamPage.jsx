@@ -281,8 +281,10 @@ export default function ExamPage() {
     sessionStorage.setItem('demoScores', JSON.stringify(_snap));
 
     if (!section.isCoding) {
+      const _correct = questions.filter(q => answers[q.id] === q.correct_answer).length;
+      const _score = questions.length ? Math.round((_correct / questions.length) * 100) : 0;
       const payload = questions.map(q => ({ question_id: q.id, user_answer: answers[q.id] || null, time_spent: 0 }));
-      try { await submitSection({ session_id: sessionId, section: section.key, answers: payload, time_taken: timeTaken }); } catch {}
+      try { await submitSection({ session_id: sessionId, section: section.key, answers: payload, time_taken: timeTaken, score: _score, correct: _correct, total: questions.length }); } catch {}
     }
 
     if (sectionIdx < SECTIONS.length - 1) {

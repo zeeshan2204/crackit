@@ -115,7 +115,10 @@ class SectionSubmit(BaseModel):
     session_id: str
     section: str
     answers: list[AnswerSubmit]
-    time_taken: int = 0                 # seconds for the whole section
+    time_taken: int = 0
+    score: Optional[int] = None        # frontend-calculated score (used for local question bank)
+    correct: Optional[int] = None
+    total: Optional[int] = None
 
 class SectionResult(BaseModel):
     section: str

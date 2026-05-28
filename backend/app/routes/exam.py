@@ -79,9 +79,7 @@ async def submit_section(
     correct = 0
     for ans in payload.answers:
         q = questions.get(ans.question_id)
-        if not q:
-            continue
-        is_correct = bool(ans.user_answer) and ans.user_answer.upper() == q.correct_answer.upper()
+        is_correct = bool(q) and bool(ans.user_answer) and ans.user_answer.upper() == q.correct_answer.upper()
         if is_correct:
             correct += 1
         db.add(ExamAnswer(
@@ -93,7 +91,14 @@ async def submit_section(
         ))
 
     total = len(payload.answers)
-    score = round((correct / total) * 100) if total else 0
+
+    # If questions came from the local JS bank (not in DB), use frontend-calculated score
+    if not questions and payload.score is not None:
+        score = payload.score
+        correct = payload.correct or 0
+        total = payload.total or total
+    else:
+        score = round((correct / total) * 100) if total else 0
 
     scores = dict(session.scores or {})
     scores[payload.section] = score
@@ -224,7 +229,7 @@ async def _build_result(session: ExamSession, db: AsyncSession) -> ExamResultOut
     tt = session.time_taken or {}
 
     sections_done = []
-    for sec in ["verbal", "reasoning", "aptitude"]:
+    for sec in ["numerical", "verbal", "reasoning", "aptitude"]:
         if sec not in sc:
             continue
         sec_q_result = await db.execute(
