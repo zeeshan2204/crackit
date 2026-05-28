@@ -414,7 +414,7 @@ export default function ExamPage() {
       </div>
 
       {/* Body */}
-      <div style={styles.body}>
+      <div style={styles.body} className="exam-body">
         {section?.isCoding ? (
           <CodingSection
             problems={activeProblems}
@@ -426,7 +426,7 @@ export default function ExamPage() {
           />
         ) : (
           <>
-            <div style={styles.questionPanel}>
+            <div style={styles.questionPanel} className="exam-question-panel">
               <div style={styles.qHeader}>
                 <span style={styles.qNum}>Question {qIdx + 1} of {questions.length}</span>
                 <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
@@ -470,7 +470,7 @@ export default function ExamPage() {
               </div>
             </div>
 
-            <div style={styles.sidebar}>
+            <div style={styles.sidebar} className="exam-sidebar-panel">
               <div style={styles.sidebarHead}>
                 <span>Palette</span>
                 <span style={{ background: '#1a1010', border: '1px solid #2a1818', borderRadius: 20, padding: '0.15rem 0.5rem', fontSize: '0.65rem', color: '#FFD60A', fontWeight: 700 }}>

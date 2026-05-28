@@ -11,9 +11,9 @@
   /* ── Exam Page ───────────────────────────────────────── */
   .exam-header { flex-wrap: wrap; gap: 0.5rem; padding: 0.75rem 1rem !important; }
   .exam-header-center { display: none !important; }
-  .exam-body   { flex-direction: column !important; height: auto !important; }
-  .exam-sidebar{ display: none !important; }
-  .exam-main   { width: 100% !important; padding: 1rem !important; overflow-y: auto !important; }
+  .exam-body   { flex-direction: column !important; height: auto !important; overflow-y: auto !important; }
+  .exam-sidebar-panel { width: 100% !important; border-left: none !important; border-top: 1px solid #1a1010 !important; flex-direction: row !important; flex-wrap: wrap !important; }
+  .exam-question-panel { padding: 1rem !important; }
   .section-strip { overflow-x: auto !important; flex-wrap: nowrap !important; }
 
   /* Coding section: stack vertically */
