@@ -33,7 +33,7 @@ export default function AuthPage() {
   };
 
   return (
-    <div style={s.root}>
+    <div style={s.root} className="auth-root">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -78,7 +78,7 @@ export default function AuthPage() {
       <div className="auth-glow" />
 
       {/* Left panel */}
-      <div style={s.left}>
+      <div style={s.left} className="auth-left">
         <div style={s.brand}>
           {/* Logo */}
           <div style={s.logoRow} className="fade-up">
@@ -128,7 +128,7 @@ export default function AuthPage() {
       </div>
 
       {/* Right panel — form */}
-      <div style={s.right}>
+      <div style={s.right} className="auth-right">
         <div style={s.card} className="fade-up">
           <h2 style={s.cardTitle}>
             {tab === "login" ? "Welcome back" : "Create account"}

@@ -118,7 +118,7 @@ export default function ProgressPage() {
         ) : (
           <>
             {/* Stat cards */}
-            <div style={st.statRow} className="p2">
+            <div style={st.statRow} className="prog-stat-row" className="p2">
               {[
                 { label: 'Attempts', value: history.length, color: '#fff' },
                 { label: 'Best Score', value: `${best}%`, color: '#FFD60A' },

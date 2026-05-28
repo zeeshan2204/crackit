@@ -357,12 +357,12 @@ export default function ExamPage() {
       `}</style>
 
       {/* Header */}
-      <div style={styles.header}>
+      <div style={styles.header} className="exam-header">
         <div style={styles.headerLogo}>
           <div style={styles.logoMark}>AI</div>
           <span style={styles.logoName}>CrackIt</span>
         </div>
-        <div style={styles.headerCenter}>
+        <div style={styles.headerCenter} className="exam-header-center">
           <span style={styles.examLabel}>EXAM IN PROGRESS</span>
           <span style={styles.sectionHeading}>{section.label}</span>
         </div>
@@ -377,7 +377,7 @@ export default function ExamPage() {
       </div>
 
       {/* Progress strip */}
-      <div style={styles.progressStrip}>
+      <div style={styles.progressStrip} className="section-strip">
         <span><b style={{ color: '#fff' }}>{answeredCount}</b> <span style={{ color: '#666' }}>{section?.isCoding ? 'submitted' : 'answered'}</span></span>
         <span><b style={{ color: '#fff' }}>{totalQs - answeredCount}</b> <span style={{ color: '#666' }}>remaining</span></span>
         {!section?.isCoding && <span><b style={{ color: '#FFD60A' }}>{qIdx + 1}</b> <span style={{ color: '#666' }}>current</span></span>}

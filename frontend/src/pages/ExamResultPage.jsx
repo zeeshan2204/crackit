@@ -242,7 +242,7 @@ export default function ExamResultPage() {
 
         {/* Stronger / Weaker section highlight */}
         {sections.length >= 2 && (
-          <div style={st.swRow} className="r2">
+          <div style={st.swRow} className="r2 sw-row">
             <div style={{ ...st.swCard, borderTop: `3px solid #10b981` }}>
               <div style={st.swBadge}>STRONGEST SECTION</div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.3rem' }}>
@@ -265,7 +265,7 @@ export default function ExamResultPage() {
         )}
 
         {/* 3 stat boxes */}
-        <div style={st.statRow} className="r2">
+        <div style={st.statRow} className="r2 stat-row-3">
           <div style={st.statBox}>
             <div style={st.statMain}>{totalCorrect}<span style={{ fontSize: '1.5rem', color: '#444' }}>/{totalQs}</span></div>
             <div style={st.statLabel}>Questions correct</div>
@@ -290,8 +290,8 @@ export default function ExamResultPage() {
               const clsColor = { strong: '#10b981', avg: '#f59e0b', weak: '#ef4444' }[cls];
               const clsLabel = { strong: 'Strong', avg: 'Average', weak: 'Weak' }[cls];
               return (
-                <div key={sec.section} style={st.breakRow}>
-                  <div style={st.breakLabel}>
+                <div key={sec.section} style={st.breakRow} className="break-row">
+                  <div style={st.breakLabel} className="break-label">
                     <span style={{ fontSize: '1rem' }}>{meta.icon}</span>
                     <div>
                       <div style={{ color: '#ccc', fontWeight: 600, fontSize: '0.88rem' }}>{meta.label}</div>
@@ -317,7 +317,7 @@ export default function ExamResultPage() {
           <div style={st.block} className="r3">
             <h2 style={st.blockTitle}>Difficulty Analysis</h2>
             <p style={{ color: '#666', fontSize: '0.85rem', marginBottom: '1.25rem' }}>How you performed across difficulty levels — identifies where your preparation gaps are.</p>
-            <div style={st.diffGrid}>
+            <div style={st.diffGrid} className="diff-grid">
               {['easy', 'medium', 'hard'].map(diff => {
                 const bd = diffAgg[diff];
                 const acc = bd.total ? Math.round((bd.correct / bd.total) * 100) : null;
@@ -353,7 +353,7 @@ export default function ExamResultPage() {
             <p style={{ color: '#666', fontSize: '0.85rem', marginBottom: '1.25rem' }}>
               Prioritize these sections: {weakSections.map(s => SECTION_META[s.section]?.label || s.section).join(' · ')}
             </p>
-            <div style={st.weakGrid}>
+            <div style={st.weakGrid} className="weak-grid">
               {weakSections.map(sec => {
                 const meta = SECTION_META[sec.section] || { label: sec.section, color: '#ef4444', icon: '📊' };
                 const recs = SECTION_RECS[sec.section] || ['Review core concepts and practice regularly.'];
@@ -507,7 +507,7 @@ export default function ExamResultPage() {
                               </div>
 
                               {/* Options */}
-                              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.35rem', paddingLeft: '1.5rem' }}>
+                              <div className="review-options-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.35rem', paddingLeft: '1.5rem' }}>
                                 {q.options.map(opt => {
                                   const letter = opt[0];
                                   const isStudentChoice = letter === studentAns;
@@ -545,7 +545,7 @@ export default function ExamResultPage() {
         )}
 
         {/* CTAs */}
-        <div style={st.ctaRow} className="r5">
+        <div style={st.ctaRow} className="r5 cta-row">
           <button className="cta-s" onClick={() => navigate('/exam')} style={st.retakeBtn}>🔁 Retake Exam</button>
           {['numerical','verbal','reasoning'].some(k => sessionStorage.getItem(`review_${k}`)) && (
             <button className="cta-s" onClick={() => { document.getElementById('answer-review')?.scrollIntoView({ behavior: 'smooth' }); }} style={{ ...st.ghostBtn, borderColor: '#10b98155', color: '#10b981' }}>📋 Review Answers</button>
