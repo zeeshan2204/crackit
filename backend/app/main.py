@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.database import engine, Base
-from app.routes import auth, problems, submissions, ai
+from app.routes import auth, problems, submissions, ai, exam, code
 from app.config import settings
 
 @asynccontextmanager
@@ -32,6 +32,8 @@ app.include_router(auth.router,        prefix="/api")
 app.include_router(problems.router,    prefix="/api")
 app.include_router(submissions.router, prefix="/api")
 app.include_router(ai.router,          prefix="/api")
+app.include_router(exam.router,        prefix="/api")
+app.include_router(code.router,        prefix="/api")
 
 @app.get("/health")
 async def health():

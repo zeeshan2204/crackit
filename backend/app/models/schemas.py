@@ -87,3 +87,87 @@ class StatsOut(BaseModel):
     avg_score: int
     by_topic: list[TopicStat]
     score_over_time: list[ScorePoint]
+
+# ── Exam ──────────────────────────────────────────────────────
+class ExamQuestionOut(BaseModel):
+    id: int
+    section: str
+    topic: str
+    question_text: str
+    options: list[str]
+    difficulty: str
+    time_limit: int
+
+class ExamQuestionWithAnswer(ExamQuestionOut):
+    correct_answer: str
+    explanation: str
+
+class ExamStartResponse(BaseModel):
+    session_id: str
+    start_time: str
+
+class AnswerSubmit(BaseModel):
+    question_id: int
+    user_answer: Optional[str] = None   # None = skipped
+    time_spent: int = 0
+
+class SectionSubmit(BaseModel):
+    session_id: str
+    section: str
+    answers: list[AnswerSubmit]
+    time_taken: int = 0                 # seconds for the whole section
+
+class SectionResult(BaseModel):
+    section: str
+    total: int
+    correct: int
+    score: int                          # percentage 0-100
+    time_taken: int
+
+class ExamResultOut(BaseModel):
+    session_id: str
+    completed: bool
+    scores: dict
+    time_taken: dict
+    sections: list[SectionResult]
+    total_score: int
+    percentile: float
+    passed: bool
+
+class LeaderboardEntry(BaseModel):
+    rank: int
+    name: str
+    total_score: int
+    verbal: int
+    reasoning: int
+    aptitude: int
+    date: str
+
+class HistoryEntry(BaseModel):
+    session_id: str
+    date: str
+    attempt: int
+    total_score: int
+    numerical: int = 0
+    verbal: int = 0
+    reasoning: int = 0
+    coding: int = 0
+
+class ExamFeedbackRequest(BaseModel):
+    total_score: int
+    passed: bool
+    sections: list[dict]
+
+class ExamFeedbackResponse(BaseModel):
+    feedback: str
+
+# ── Code Runner ───────────────────────────────────────────────
+class CodeRunRequest(BaseModel):
+    language: str
+    code: str
+    stdin: str = ""
+
+class CodeRunResponse(BaseModel):
+    stdout: str
+    stderr: str
+    exit_code: int

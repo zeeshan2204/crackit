@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-MODEL = "llama3-70b-8192"
+MODEL = "llama3-8b-8192"
 
 
 def evaluate_code(code: str, language: str, problem: dict) -> dict:
@@ -39,6 +39,32 @@ def evaluate_code(code: str, language: str, problem: dict) -> dict:
 
     raw = response.choices[0].message.content.strip()
     return json.loads(raw)
+
+
+def generate_exam_feedback(total_score: int, sections: list[dict], passed: bool) -> str:
+    section_lines = "\n".join([
+        f"  - {s.get('section','').capitalize()}: {s.get('correct',0)}/{s.get('total',0)} correct ({s.get('score',0)}%)"
+        for s in sections
+    ])
+    status = "PASSED" if passed else "did NOT clear the cutoff"
+    prompt = (
+        f"You are an expert campus placement coach. A student just completed their InterviewAI placement test.\n\n"
+        f"Result: {status} | Overall Score: {total_score}%\n"
+        f"Section Scores:\n{section_lines}\n\n"
+        f"Write a personalized, motivating feedback report with these exact sections:\n"
+        f"1. **Overall Assessment** (2 sentences — honest but encouraging)\n"
+        f"2. **Your Strengths** (2 bullet points based on highest-scoring sections)\n"
+        f"3. **Focus Areas** (2-3 bullet points — specific tips for lowest-scoring sections)\n"
+        f"4. **7-Day Study Plan** (one action per day, practical and specific)\n\n"
+        f"Be concise, specific, and actionable. Use the actual section names."
+    )
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.7,
+        max_tokens=700,
+    )
+    return response.choices[0].message.content.strip()
 
 
 def chat_with_ai(messages: list[dict], context: str) -> str:

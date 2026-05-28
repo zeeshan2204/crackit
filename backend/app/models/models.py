@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import String, Integer, Text, DateTime, ForeignKey, JSON
+from sqlalchemy import String, Integer, Text, DateTime, ForeignKey, JSON, Boolean, Float
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database import Base
 
@@ -71,3 +71,48 @@ class Feedback(Base):
     created_at:    Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
     submission: Mapped["Submission"] = relationship("Submission", back_populates="feedback")
+
+
+class ExamQuestion(Base):
+    __tablename__ = "exam_questions"
+
+    id:             Mapped[int]  = mapped_column(Integer, primary_key=True, autoincrement=True)
+    section:        Mapped[str]  = mapped_column(String, nullable=False)   # verbal/reasoning/aptitude/coding
+    topic:          Mapped[str]  = mapped_column(String, nullable=False)
+    question_text:  Mapped[str]  = mapped_column(Text, nullable=False)
+    options:        Mapped[dict] = mapped_column(JSON, nullable=False)      # list of 4 strings
+    correct_answer: Mapped[str]  = mapped_column(String, nullable=False)   # "A"/"B"/"C"/"D"
+    explanation:    Mapped[str]  = mapped_column(Text, nullable=False)
+    difficulty:     Mapped[str]  = mapped_column(String, default="medium")
+    time_limit:     Mapped[int]  = mapped_column(Integer, default=90)       # seconds per question
+
+    answers: Mapped[list["ExamAnswer"]] = relationship("ExamAnswer", back_populates="question")
+
+
+class ExamSession(Base):
+    __tablename__ = "exam_sessions"
+
+    id:         Mapped[str]      = mapped_column(String, primary_key=True, default=gen_uuid)
+    user_id:    Mapped[str]      = mapped_column(String, ForeignKey("users.id"), nullable=False)
+    start_time: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    end_time:   Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    scores:     Mapped[dict]     = mapped_column(JSON, default=dict)        # {verbal, reasoning, aptitude, coding, total}
+    time_taken: Mapped[dict]     = mapped_column(JSON, default=dict)        # {verbal, reasoning, aptitude, coding}
+    completed:  Mapped[bool]     = mapped_column(Boolean, default=False)
+
+    user:    Mapped["User"]           = relationship("User")
+    answers: Mapped[list["ExamAnswer"]] = relationship("ExamAnswer", back_populates="session")
+
+
+class ExamAnswer(Base):
+    __tablename__ = "exam_answers"
+
+    id:          Mapped[str]  = mapped_column(String, primary_key=True, default=gen_uuid)
+    session_id:  Mapped[str]  = mapped_column(String, ForeignKey("exam_sessions.id"), nullable=False)
+    question_id: Mapped[int]  = mapped_column(Integer, ForeignKey("exam_questions.id"), nullable=False)
+    user_answer: Mapped[str | None] = mapped_column(String, nullable=True)  # "A"/"B"/"C"/"D" or None
+    is_correct:  Mapped[bool] = mapped_column(Boolean, default=False)
+    time_spent:  Mapped[int]  = mapped_column(Integer, default=0)           # seconds
+
+    session:  Mapped["ExamSession"]  = relationship("ExamSession", back_populates="answers")
+    question: Mapped["ExamQuestion"] = relationship("ExamQuestion", back_populates="answers")

@@ -179,7 +179,7 @@ export default function InterviewPage() {
               fontFamily:"'DM Mono', monospace", fontWeight:700, fontSize:15,
               background:"linear-gradient(135deg, #58a6ff, #a371f7)",
               WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text",
-            }}>InterviewAI</span>
+            }}>CrackIt</span>
             {iv.isDemo && <span style={{ fontSize:10, background:`${t.amber}1e`, color:t.amber, padding:"2px 7px", borderRadius:5, fontFamily:"'DM Mono', monospace", fontWeight:700, border:`1px solid ${t.amber}35` }}>DEMO</span>}
           </div>
 
