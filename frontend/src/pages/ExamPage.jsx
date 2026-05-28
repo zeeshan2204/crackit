@@ -658,7 +658,7 @@ const SECTION_META_INST = [
 function InstructionsScreen({ onStart }) {
   const circ = 2 * Math.PI * 72;
   return (
-    <div style={is.root}>
+    <div style={is.root} className="inst-root">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
@@ -678,24 +678,24 @@ function InstructionsScreen({ onStart }) {
       `}</style>
       <div className="watermark">PLACEMENT</div>
 
-      <div style={is.left}>
+      <div style={is.left} className="inst-left">
         <div style={is.logoRow} className="il">
           <div style={is.logoMark}>AI</div>
           <span style={is.logoName}>CrackIt</span>
         </div>
         <div style={is.hero}>
           <div style={is.badge} className="il">FREE CAMPUS PLACEMENT EXAM</div>
-          <h1 style={is.title} className="il2">
+          <h1 style={is.title} className="il2 inst-title">
             <span style={{ color: '#FFD60A' }}>CrackIt</span><br />
             Placement<br />
             <span style={{ color: '#fff' }}>Exam</span>
           </h1>
-          <p style={is.sub} className="il2">
+          <p style={is.sub} className="il2 inst-sub">
             Full campus-style placement test with section-wise timers, a real code compiler
             for C/C++/Java/Python, difficulty analysis, and instant performance snapshot.
           </p>
         </div>
-        <div style={is.statGrid} className="il3">
+        <div style={is.statGrid} className="il3 inst-stat-grid">
           {[
             ['32', 'Total Questions', '10 Numerical · 10 Verbal\n10 Reasoning · 2 Coding'],
             ['~2 hrs', 'Exam Duration', 'Section timers · auto-submit\nwhen time runs out'],
@@ -711,7 +711,7 @@ function InstructionsScreen({ onStart }) {
         </div>
       </div>
 
-      <div style={is.right}>
+      <div style={is.right} className="inst-right">
         <div style={is.console} className="il">
           <div style={is.consoleHead}>
             <span style={is.consoleTitle}>Exam Overview</span>
@@ -722,7 +722,7 @@ function InstructionsScreen({ onStart }) {
           </div>
           <p style={is.consoleSub}>Real compiler · Fresh questions</p>
 
-          <div style={{ display: 'flex', justifyContent: 'center', margin: '1.75rem 0' }}>
+          <div className="inst-svg" style={{ display: 'flex', justifyContent: 'center', margin: '1.75rem 0' }}>
             <svg width="160" height="160" viewBox="0 0 180 180">
               <circle cx="90" cy="90" r="72" fill="none" stroke="#1a1010" strokeWidth="14" />
               <circle cx="90" cy="90" r="72" fill="none" stroke="#FFD60A" strokeWidth="14"

@@ -45,6 +45,15 @@
   /* ── Global nav ──────────────────────────────────────── */
   .page-nav    { flex-wrap: wrap; gap: 0.5rem !important; }
   .page-nav button { font-size: 0.72rem !important; padding: 0.35rem 0.6rem !important; }
+
+  /* ── Instructions Screen ─────────────────────────────── */
+  .inst-root   { flex-direction: column !important; overflow-y: auto !important; }
+  .inst-left   { padding: 2rem 1.25rem !important; }
+  .inst-right  { width: 100% !important; border-left: none !important; border-top: 1px solid #1a1010 !important; padding: 1.5rem 1.25rem !important; }
+  .inst-stat-grid { grid-template-columns: 1fr 1fr !important; }
+  .inst-title  { font-size: 2.8rem !important; }
+  .inst-sub    { font-size: 0.85rem !important; overflow-wrap: break-word !important; word-break: break-word !important; }
+  .inst-svg    { display: none !important; }
 }
 
 /* ── Answer review options ───────────────────────────── */
