@@ -516,7 +516,7 @@ function CodingSection({ problems, codeState, updateCode, onRun, onSubmitProblem
   return (
     <div style={{ display: 'flex', flex: 1, flexDirection: 'column', overflow: 'hidden' }}>
       {/* Problem tabs bar */}
-      <div style={{ display: 'flex', background: '#0d0808', borderBottom: '1px solid #1a1010', padding: '0 0.75rem', alignItems: 'center' }}>
+      <div className="coding-tabs" style={{ display: 'flex', background: '#0d0808', borderBottom: '1px solid #1a1010', padding: '0 0.75rem', alignItems: 'center', overflowX: 'auto' }}>
         {problems.map((p, i) => {
           const done = codeState[i]?.submitted;
           const isAct = activeProb === i;
@@ -538,9 +538,9 @@ function CodingSection({ problems, codeState, updateCode, onRun, onSubmitProblem
       </div>
 
       {/* Split: statement + editor */}
-      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+      <div className="coding-split" style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
         {/* Problem statement */}
-        <div style={{ width: '40%', borderRight: '1px solid #1a1010', overflowY: 'auto', padding: '1.5rem', background: '#0a0808', flexShrink: 0 }}>
+        <div className="coding-problem" style={{ width: '40%', borderRight: '1px solid #1a1010', overflowY: 'auto', padding: '1.5rem', background: '#0a0808', flexShrink: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.85rem' }}>
             <h2 style={{ color: '#fff', fontSize: '1.05rem', fontWeight: 800, margin: 0 }}>{prob.title}</h2>
             <span style={{ fontSize: '0.68rem', padding: '0.15rem 0.5rem', borderRadius: 4, background: prob.difficulty === 'hard' ? '#ef444418' : '#f59e0b18', color: prob.difficulty === 'hard' ? '#ef4444' : '#f59e0b', fontWeight: 700, textTransform: 'uppercase' }}>
@@ -577,7 +577,7 @@ function CodingSection({ problems, codeState, updateCode, onRun, onSubmitProblem
         </div>
 
         {/* Editor + console */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#0d0808' }}>
+        <div className="coding-editor" style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#0d0808' }}>
           {/* Editor toolbar */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.55rem 1rem', borderBottom: '1px solid #1a1010', background: '#0d0808', flexShrink: 0 }}>
             <select
