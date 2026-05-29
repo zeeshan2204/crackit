@@ -446,9 +446,12 @@ export default function ExamPage() {
 
               {currentQ?.context && (
                 <div style={styles.contextBox}>
-                  {currentQ.context.split('\n').map((line, i) => (
-                    <p key={i} style={{ margin: '0.15rem 0', fontFamily: line.startsWith('|') || line.startsWith('Year') || line.startsWith('Subject') || line.startsWith('Company') || line.startsWith('Item') || line.startsWith('---') ? 'monospace' : 'inherit', fontSize: line.startsWith('|') || line.startsWith('Year') || line.startsWith('Subject') || line.startsWith('Company') ? '0.8rem' : '0.88rem' }}>{line}</p>
-                  ))}
+                  {currentQ.context.split('\n\n').map((block, i) => {
+                    const isTable = block.includes('|') || block.includes('---');
+                    return isTable
+                      ? <pre key={i} style={{ margin: '0.4rem 0', fontFamily: 'monospace', fontSize: '0.78rem', overflowX: 'auto', whiteSpace: 'pre', lineHeight: 1.6 }}>{block}</pre>
+                      : <p key={i} style={{ margin: '0.2rem 0', fontSize: '0.88rem', lineHeight: 1.65 }}>{block}</p>;
+                  })}
                 </div>
               )}
               <div style={styles.questionText}>
