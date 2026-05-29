@@ -442,6 +442,13 @@ export default function ExamPage() {
                 </div>
               </div>
 
+              {currentQ?.context && (
+                <div style={styles.contextBox}>
+                  {currentQ.context.split('\n').map((line, i) => (
+                    <p key={i} style={{ margin: '0.15rem 0', fontFamily: line.startsWith('|') || line.startsWith('Year') || line.startsWith('Subject') || line.startsWith('Company') || line.startsWith('Item') || line.startsWith('---') ? 'monospace' : 'inherit', fontSize: line.startsWith('|') || line.startsWith('Year') || line.startsWith('Subject') || line.startsWith('Company') ? '0.8rem' : '0.88rem' }}>{line}</p>
+                  ))}
+                </div>
+              )}
               <div style={styles.questionText}>
                 {currentQ?.question_text.split('\n').map((line, i) => <p key={i} style={{ margin: '0.3rem 0' }}>{line}</p>)}
               </div>
@@ -811,6 +818,7 @@ const styles = {
   qHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' },
   qNum: { fontSize: '0.82rem', color: '#666', fontWeight: 600 },
   tag: { padding: '0.2rem 0.6rem', borderRadius: 4, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.02em' },
+  contextBox: { fontSize: '0.88rem', color: '#bbb', lineHeight: 1.75, marginBottom: '0.75rem', background: '#0d0808', border: '1px solid #2a1818', borderRadius: 8, padding: '1rem 1.25rem', borderLeft: '3px solid #FFD60A' },
   questionText: { fontSize: '1rem', color: '#e0e0e0', lineHeight: 1.8, marginBottom: '1.5rem', background: '#120c0c', border: '1px solid #1f1212', borderRadius: 8, padding: '1.25rem 1.5rem' },
   options: { display: 'flex', flexDirection: 'column', gap: '0.45rem', marginBottom: '1.5rem' },
   optionBtn: { display: 'flex', alignItems: 'center', gap: '1rem', padding: '0.9rem 1.25rem', borderRadius: 8, cursor: 'pointer', textAlign: 'left', width: '100%', fontSize: '0.95rem', fontFamily: 'inherit' },
