@@ -1,4 +1,3 @@
-import axios from 'axios';
 import api from './client';
 
 export const startExam = () =>
@@ -26,4 +25,4 @@ export const getAiFeedback = (payload) =>
   api.post('/ai/exam-feedback', payload).then(r => r.data);
 
 export const executeCode = (payload) =>
-  axios.post('http://localhost:8000/api/code/run', payload).then(r => r.data);
+  api.post('/code/run', payload).then(r => r.data);
