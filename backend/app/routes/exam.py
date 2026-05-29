@@ -82,13 +82,14 @@ async def submit_section(
         is_correct = bool(q) and bool(ans.user_answer) and ans.user_answer.upper() == q.correct_answer.upper()
         if is_correct:
             correct += 1
-        db.add(ExamAnswer(
-            session_id=payload.session_id,
-            question_id=ans.question_id,
-            user_answer=ans.user_answer,
-            is_correct=is_correct,
-            time_spent=ans.time_spent,
-        ))
+        if q:  # skip insert if question not in DB — avoids FK constraint violation
+            db.add(ExamAnswer(
+                session_id=payload.session_id,
+                question_id=ans.question_id,
+                user_answer=ans.user_answer,
+                is_correct=is_correct,
+                time_spent=ans.time_spent,
+            ))
 
     total = len(payload.answers)
 
