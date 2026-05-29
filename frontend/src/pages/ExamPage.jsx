@@ -25,9 +25,9 @@ function pickRandom(arr, n) {
 
 const SECTIONS = [
   { key: 'numerical', label: 'Numerical Ability',  duration: 20 * 60, color: '#10b981' },
-  { key: 'verbal',    label: 'Verbal Ability',      duration: 20 * 60, color: '#6366f1' },
+  { key: 'verbal',    label: 'Verbal Ability',      duration: 15 * 60, color: '#6366f1' },
   { key: 'reasoning', label: 'Reasoning Ability',   duration: 25 * 60, color: '#f59e0b' },
-  { key: 'coding',    label: 'Coding',              duration: 60 * 60, color: '#ef4444', isCoding: true },
+  { key: 'coding',    label: 'Coding',              duration: 45 * 60, color: '#ef4444', isCoding: true },
 ];
 
 const STATUS = { unanswered: 'unanswered', answered: 'answered', review: 'review', skipped: 'skipped' };
@@ -61,7 +61,7 @@ export default function ExamPage() {
   const [qIdx, setQIdx] = useState(0);
   const [answers, setAnswers] = useState({});
   const [statuses, setStatuses] = useState({});
-  const [globalTimeLeft, setGlobalTimeLeft] = useState(60 * 60);
+  const [sectionTimeLeft, setSectionTimeLeft] = useState(0);
   const [sectionStart, setSectionStart] = useState(Date.now());
   const [completedSections, setCompletedSections] = useState([]);
   const [codeState, setCodeState] = useState({});
@@ -142,15 +142,17 @@ export default function ExamPage() {
 
   useEffect(() => {
     if (phase !== 'exam') return;
-    setGlobalTimeLeft(60 * 60); // start 1-hour countdown when exam begins
+    const sec = SECTIONS[sectionIdx];
+    setSectionTimeLeft(sec.duration);
+    clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
-      setGlobalTimeLeft(t => {
-        if (t <= 1) { clearInterval(timerRef.current); endExamRef.current?.(); return 0; }
+      setSectionTimeLeft(t => {
+        if (t <= 1) { clearInterval(timerRef.current); submitRef.current?.(true); return 0; }
         return t - 1;
       });
     }, 1000);
     return () => clearInterval(timerRef.current);
-  }, [phase]); // no sectionIdx — timer never resets between sections
+  }, [phase, sectionIdx]); // resets every time section changes
 
   const selectAnswer = (opt) => {
     if (!currentQ) return;
@@ -372,8 +374,8 @@ export default function ExamPage() {
           <button onClick={handleEndExamEarly} style={{ background: 'none', border: '1px solid #2a1818', color: '#555', padding: '0.3rem 0.75rem', borderRadius: 6, cursor: 'pointer', fontSize: '0.72rem', fontWeight: 600, fontFamily: 'inherit' }}>
             End Exam
           </button>
-          <div style={{ ...styles.timerBox, color: globalTimeLeft < 300 ? '#ef4444' : globalTimeLeft < 600 ? '#f59e0b' : '#fff', borderColor: globalTimeLeft < 300 ? '#ef444455' : '#2a1a1a', background: globalTimeLeft < 300 ? 'rgba(239,68,68,0.1)' : '#1a1010' }}>
-            {formatTime(globalTimeLeft)}
+          <div style={{ ...styles.timerBox, color: sectionTimeLeft < 60 ? '#ef4444' : sectionTimeLeft < 180 ? '#f59e0b' : '#fff', borderColor: sectionTimeLeft < 60 ? '#ef444455' : '#2a1a1a', background: sectionTimeLeft < 60 ? 'rgba(239,68,68,0.1)' : '#1a1010' }}>
+            {formatTime(sectionTimeLeft)}
           </div>
         </div>
       </div>
@@ -659,9 +661,9 @@ function CodingSection({ problems, codeState, updateCode, onRun, onSubmitProblem
 // ── InstructionsScreen ───────────────────────────────────────────
 const SECTION_META_INST = [
   { key: 'numerical', label: 'Numerical Ability',  icon: '🔢', color: '#10b981', desc: '10 questions · 20 min' },
-  { key: 'verbal',    label: 'Verbal Ability',      icon: '📖', color: '#6366f1', desc: '10 questions · 20 min' },
+  { key: 'verbal',    label: 'Verbal Ability',      icon: '📖', color: '#6366f1', desc: '10 questions · 15 min' },
   { key: 'reasoning', label: 'Reasoning Ability',   icon: '🧩', color: '#f59e0b', desc: '10 questions · 25 min' },
-  { key: 'coding',    label: 'Coding (IDE)',         icon: '💻', color: '#ef4444', desc: '2 problems · 60 min' },
+  { key: 'coding',    label: 'Coding (IDE)',         icon: '💻', color: '#ef4444', desc: '2 problems · 45 min' },
 ];
 
 function InstructionsScreen({ onStart }) {
@@ -707,7 +709,7 @@ function InstructionsScreen({ onStart }) {
         <div style={is.statGrid} className="il3 inst-stat-grid">
           {[
             ['32', 'Total Questions', '10 Numerical · 10 Verbal\n10 Reasoning · 2 Coding'],
-            ['~1 hr', 'Exam Duration', 'Global timer · auto-submit\nwhen time runs out'],
+            ['~1 hr 45 min', 'Exam Duration', 'Per-section timers · auto-submit\nwhen section time ends'],
             ['Easy/Med/Hard', 'Difficulty Mix', 'Questions graded by level\nfor weakness analysis'],
             ['Live Snapshot', 'Post-Exam', 'Weaker/stronger sections\nwith recommendations'],
           ].map(([v, l, d]) => (
