@@ -160,6 +160,7 @@ export default function ExamResultPage() {
   const sortedBySections = [...sections].sort((a, b) => b.score - a.score);
   const strongest = sortedBySections[0];
   const weakest = sortedBySections[sortedBySections.length - 1];
+  const showSwCards = sections.length >= 2 && strongest?.section !== weakest?.section;
 
   // Weak sections (< 40%)
   const weakSections = sections.filter(s => s.score < 40);
@@ -241,7 +242,7 @@ export default function ExamResultPage() {
         </div>
 
         {/* Stronger / Weaker section highlight */}
-        {sections.length >= 2 && (
+        {showSwCards && (
           <div style={st.swRow} className="r2 sw-row">
             <div style={{ ...st.swCard, borderTop: `3px solid #10b981` }}>
               <div style={st.swBadge}>STRONGEST SECTION</div>
@@ -485,12 +486,28 @@ export default function ExamResultPage() {
                     {/* Questions */}
                     {isOpen && (
                       <div style={{ background: '#0d0808', borderTop: '1px solid #1a1010' }}>
-                        {qs.map((q, qi) => {
+                        {qs.length === 0 ? (
+                          <div style={{ padding: '2rem 1.25rem', textAlign: 'center', color: '#555' }}>
+                            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>○</div>
+                            <div style={{ fontWeight: 700, color: '#666', marginBottom: '0.25rem' }}>Section not attempted</div>
+                            <div style={{ fontSize: '0.8rem' }}>No questions were recorded for this section.</div>
+                          </div>
+                        ) : qs.map((q, qi) => {
                           const studentAns = ans[q.id];
                           const isCorrect = studentAns === q.correct_answer;
                           const isSkipped = !studentAns;
                           return (
                             <div key={q.id} style={{ padding: '1.1rem 1.25rem', borderBottom: '1px solid #110a0a' }}>
+                              {/* Passage / DI context */}
+                              {q.context && (
+                                <div style={{ background: '#120c0c', border: '1px solid #2a1818', borderLeft: '3px solid #FFD60A', borderRadius: 6, padding: '0.75rem 1rem', marginBottom: '0.75rem', fontSize: '0.78rem', color: '#aaa', lineHeight: 1.6 }}>
+                                  {q.context.split('\n\n').map((block, bi) =>
+                                    block.includes('|') || block.includes('---')
+                                      ? <pre key={bi} style={{ margin: '0.2rem 0', fontFamily: 'monospace', fontSize: '0.72rem', overflowX: 'auto', whiteSpace: 'pre' }}>{block}</pre>
+                                      : <p key={bi} style={{ margin: '0.1rem 0' }}>{block}</p>
+                                  )}
+                                </div>
+                              )}
                               {/* Question header */}
                               <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '0.75rem', alignItems: 'flex-start' }}>
                                 <span style={{ fontWeight: 800, color: isSkipped ? '#555' : isCorrect ? '#10b981' : '#ef4444', fontSize: '0.9rem', flexShrink: 0, marginTop: '0.1rem' }}>
