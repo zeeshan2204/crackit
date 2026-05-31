@@ -97,9 +97,9 @@ export default function AuthPage() {
           {/* Stats */}
           <div style={s.stats} className="fade-up-3">
             {[
-              ["240+", "Questions"],
+              ["500+", "Questions"],
               ["4", "Sections"],
-              ["~1 hr", "Full Exam"],
+              ["~105 min", "Full Exam"],
               ["Live", "Percentile"],
             ].map(([v, l]) => (
               <div key={l} className="stat-box" style={s.stat}>

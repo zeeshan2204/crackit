@@ -11,7 +11,7 @@ export default function ModePage() {
       <header style={styles.header}>
         <div style={styles.logo}>
           <span style={styles.logoIcon}>⚡</span>
-          <span style={styles.logoText}>PrepPortal</span>
+          <span style={styles.logoText}>CrackIt</span>
         </div>
         <div style={styles.headerRight}>
           <span style={styles.userName}>{user?.name}</span>
@@ -39,7 +39,7 @@ export default function ModePage() {
             </p>
             <ul style={styles.featureList}>
               <li>✓ Coding problems (Easy / Medium / Hard)</li>
-              <li>✓ Multi-language: Python, Java, JavaScript</li>
+              <li>✓ Multi-language: Python, Java, C, C++</li>
               <li>✓ Instant AI evaluation & score</li>
               <li>✓ AI chat for hints & explanations</li>
               <li>✓ Analytics dashboard</li>
@@ -60,7 +60,7 @@ export default function ModePage() {
               Aptitude, and Coding. Timed sections with auto-submit.
             </p>
             <ul style={styles.featureList}>
-              <li>✓ 4 sections · 74+ questions · ~3 hours</li>
+              <li>✓ 4 sections · 42 questions · ~1 hr 45 min</li>
               <li>✓ Section-wise timer with auto-submit</li>
               <li>✓ Mark for Review feature</li>
               <li>✓ Question navigator palette</li>
@@ -75,7 +75,7 @@ export default function ModePage() {
         {/* Stats row */}
         <div style={styles.statsRow}>
           {[
-            { label: 'Questions', value: '100+' },
+            { label: 'Questions', value: '500+' },
             { label: 'Sections', value: '4' },
             { label: 'Languages', value: '4' },
             { label: 'AI-powered', value: '✓' },
